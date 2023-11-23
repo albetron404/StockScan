@@ -25,18 +25,19 @@ DROP TABLE IF EXISTS `stockscan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stockscan` (
-  `ID` int NOT NULL,
-  `URL` varchar(5000) DEFAULT NULL,
-  `FetchDate` datetime DEFAULT NULL,
-  `StartDate` datetime DEFAULT NULL,
-  `EndDate` datetime DEFAULT NULL,
-  `NewsDate` datetime DEFAULT NULL,
-  `NewsTitle` varchar(5000) DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `url` varchar(5000) DEFAULT NULL,
+  `FetchDate` datetime NOT NULL,
+  `StartDate` datetime NOT NULL,
+  `EndDate` datetime NOT NULL,
+  `NewsDate` datetime NOT NULL,
+  `NewsTitle` varchar(5000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `NewsContent` mediumtext,
-  `AnyStockSymbol` tinyint DEFAULT NULL,
-  `StockSymbolList` varchar(5000) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='Stock Scan Table to store data from given news wire website';
+  `AnyStockSymbol` tinyint NOT NULL DEFAULT '0',
+  `SymbolList` varchar(5000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-22 20:03:34
+-- Dump completed on 2023-11-22 21:29:53
